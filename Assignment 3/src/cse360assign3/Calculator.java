@@ -27,7 +27,8 @@ public class Calculator extends AddingMachine {
 	 * @param the value to multiply by
 	 */
 	public void multiply(int value) {
-		
+		total *= value;
+		history += " * " + value;	
 	}
 	
 	/**
@@ -37,8 +38,15 @@ public class Calculator extends AddingMachine {
 	 * Update the history of total.
 	 * @param the value to divide total by.
 	 */
-	public void divide() {
-		
+	public void divide(int value) {
+		if ( value != 0 ) {
+			total /= value;
+			history += " / " + value;
+		}
+		else {
+			total = 0;
+			history += " / " + value;
+		}
 	}
 	
 	/**
@@ -48,8 +56,15 @@ public class Calculator extends AddingMachine {
 	 * Update the history of total.
 	 * @param the value to be the power.
 	 */
-	public void power() {
-		
+	public void power(int value) {
+		if ( value > 0 ) {
+			total = (int)Math.pow( total, value );
+			history += " ^ " + value;
+		}
+		else {
+			total = 0;
+			history += " ^ " + value;
+		}
 	}
 
 }
